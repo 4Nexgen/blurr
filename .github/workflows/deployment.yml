@@ -25,8 +25,5 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.VM_SSH_KEY }}" > ~/.ssh/ssh-key
           chmod 400 ~/.ssh/ssh-key
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh-key ${{ secrets.DOCKER_USERNAME }}@${{ secrets.VM_HOST }} -p 2105 << 'EOF'
-            cd /home/pc/var/app/blurr
-            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
-            sh deploy.sh
-          EOF
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh-key pc@${{ secrets.VM_HOST }} -p 2105 \
+            'cd /home/pc/var/app/blurr && docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }} && sh deploy.sh'
