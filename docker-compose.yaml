@@ -4,10 +4,6 @@ services:
   app: 
     image: arneil/blurr:latest 
     container_name: blurr
-
-    env_file:
-      - .env 
     ports: 
       - 3000:3000
-    volumes:
-      - /home/pc/var/app/blurr/.env:/usr/src/app/.env 
+ 
