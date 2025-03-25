@@ -2,12 +2,12 @@ version: "3.9"
 
 services: 
   app: 
-    image: xoderockson/xgame-api:latest 
-    container_name: xgame-api 
+    image: arneil/blurr:latest 
+    container_name: blurr
 
     env_file:
       - .env 
     ports: 
-      - 3001:3001 
+      - 3000:3000
     volumes:
       - /home/pc/var/app/blurr/.env:/usr/src/app/.env 
